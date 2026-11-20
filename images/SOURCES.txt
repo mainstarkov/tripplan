@@ -1,0 +1,44 @@
+Фотографии Unsplash, загружены 16.11.2026 для учебного проекта TripPlan.
+
+mountains.jpg
+https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1600&q=85&fit=crop
+
+rome.jpg
+https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=1200&q=85&fit=crop
+
+paris.jpg
+https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1200&q=85&fit=crop
+
+istanbul.jpg
+https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=1200&q=85&fit=crop
+
+Локальное хранение позволяет открыть сайт без внешней загрузки фотографий.
+Горный снимок служит общей иллюстрацией природы, без привязки к конкретному маршруту.
+
+Фотографии для подборок (уменьшены до 1000 пикселей, в карточках кадрируются).
+rome-trevi.jpg — NikonZ7II — https://commons.wikimedia.org/wiki/File:Trevi_Fountain_-_Roma.jpg
+paris-louvre.jpg — Benh LIEU SONG — https://commons.wikimedia.org/wiki/File:Louvre_Museum_Wikimedia_Commons.jpg
+istanbul-bosphorus.jpg — Adbar — https://commons.wikimedia.org/wiki/File:Bosphorus_aerial_view.jpg
+mountains-trail.jpg — Tiia Monto — https://commons.wikimedia.org/wiki/File:2019_Tre_Cime.jpg
+Лицензия фотографий: CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0/
+
+taiga-flight.mp4 и taiga-flight.jpg — Mikhail Nilov, Pexels. Видео сокращено, зациклено и сжато, постер взят из видео.
+https://www.pexels.com/video/aerial-footage-of-pine-trees-8435904/
+Лицензия: https://www.pexels.com/license/
+
+rome-flight.mp4 — Nicoló Monterotondo, Pexels. Видео сокращено, зациклено и сжато.
+https://www.pexels.com/video/aerial-view-of-the-majestic-colosseum-at-sunset-36056327/
+Лицензия: https://www.pexels.com/license/
+
+paris-eiffel.mp4 — «Sunset on Eiffel Tower in Paris», Mythomen, Wikimedia Commons.
+Видео сокращено, кадрировано, зациклено и сжато. Лицензия CC BY-SA 4.0.
+https://commons.wikimedia.org/wiki/File:Sunset_on_Eiffel_Tower_in_Paris_-_Vimeo.webm
+https://creativecommons.org/licenses/by-sa/4.0/
+
+istanbul-galata.mp4 — Julien Goettelmann, Pexels. Видео сокращено, зациклено и сжато.
+https://www.pexels.com/video/galata-tower-in-istanbul-18361678/
+Лицензия: https://www.pexels.com/license/
+
+mountains-flight.mp4 — Mikhail Nilov, Pexels. Видео сокращено, кадрировано, зациклено и сжато.
+https://www.pexels.com/video/drone-footage-of-a-pine-forest-8435839/
+Лицензия: https://www.pexels.com/license/

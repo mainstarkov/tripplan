@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="TripPlan — планировщик путешествий. Создавайте маршруты, считайте расходы и собирайте вещи в одном месте.">
+    <meta name="theme-color" content="#214e43">
+    <title>TripPlan — путешествия по плану</title>
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/data.js" defer></script>
+    <script src="js/app.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
+    <header class="site-header container">
+        <a class="logo" href="#/home" aria-label="TripPlan — главная">
+            <img src="images/favicon.svg" alt="" width="32" height="32">TripPlan
+        </a>
+        <button class="icon-button menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="navigation" data-action="menu">☰</button>
+        <nav id="navigation" aria-label="Главное меню">
+            <a href="#/home" data-nav="home">Главная</a>
+            <a href="#/directions" data-nav="directions">Направления</a>
+            <a href="#/trips" data-nav="trips">Мои поездки</a>
+            <a href="#/favorites" data-nav="favorites">Избранное</a>
+        </nav>
+        <div class="header-actions">
+            <button class="icon-button theme-toggle" type="button" data-action="theme" aria-label="Включить тёмную тему" title="Переключить тему">☾</button>
+            <button class="button header-create" type="button" data-action="new-trip">+ Новая поездка</button>
+        </div>
+    </header>
+    <p class="storage-warning container" id="storage-warning" role="alert" hidden></p>
+    <main id="main" class="container" tabindex="-1">
+        <section data-view="home" aria-labelledby="home-title">
+            <div class="hero">
+                <div class="hero-copy">
+                    <p class="eyebrow">Меньше суеты. Больше впечатлений.</p>
+                    <h1 id="home-title">Ваше следующее приключение&nbsp;— по плану.</h1>
+                    <p class="hero-description">Соберите маршрут, рассчитайте бюджет и сохраните всё важное для поездки.</p>
+                    <div class="actions">
+                        <button class="button" type="button" data-action="new-trip">Создать поездку <span aria-hidden="true">↗</span></button>
+                        <a class="button secondary" href="#/directions">Выбрать направление</a>
+                    </div>
+                </div>
+                <div class="hero-visual" aria-hidden="true">
+                    <video id="hero-flight" muted loop playsinline preload="none" poster="images/taiga-flight.jpg" aria-hidden="true">
+                        <source src="images/taiga-flight.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            <ol class="steps">
+                <li><span>01</span><div><h2>Выберите место</h2><p>Город, природа или свой маршрут</p></div></li>
+                <li><span>02</span><div><h2>Соберите план</h2><p>Дни, места и расходы — рядом</p></div></li>
+                <li><span>03</span><div><h2>Отправляйтесь</h2><p>Все детали уже под рукой</p></div></li>
+            </ol>
+            <section class="section-space" aria-labelledby="popular-title">
+                <div class="section-heading"><h2 id="popular-title">Куда отправимся?</h2><a class="text-link" href="#/directions">Все направления ↗</a></div>
+                <div class="destination-grid" id="home-destinations"></div>
+            </section>
+        </section>
+        <section data-view="directions" hidden aria-labelledby="directions-title">
+            <div class="page-heading"><p class="eyebrow">Коллекция идей</p><h1 id="directions-title">Место для новой истории</h1><p>Выберите настроение поездки. Остальное соберём по шагам.</p></div>
+            <div class="search-block"><label for="destination-search">Поиск направления</label><div class="search-input"><span aria-hidden="true">⌕</span><input type="search" id="destination-search" placeholder="Город, страна или природа" autocomplete="off"></div></div>
+            <div class="filter-row" role="group" aria-label="Тип направления">
+                <button class="chip active" type="button" data-action="filter" data-filter="all" aria-pressed="true">Все направления</button>
+                <button class="chip" type="button" data-action="filter" data-filter="city" aria-pressed="false">Города</button>
+                <button class="chip" type="button" data-action="filter" data-filter="nature" aria-pressed="false">Природа</button>
+            </div>
+            <p class="small muted" id="search-count" aria-live="polite"></p>
+            <div class="destination-grid" id="all-destinations"></div>
+            <div class="custom-route"><div><h2>Не нашли своё место?</h2><p>Укажите любой город при создании поездки.</p></div><button class="button" type="button" data-action="new-trip">Создать свой маршрут</button></div>
+        </section>
+        <section data-view="trips" hidden aria-labelledby="trips-title">
+            <div class="page-heading"><p class="eyebrow">Ваши планы</p><h1 id="trips-title">Мои поездки</h1><p>От идеи до последнего пункта маршрута.</p></div>
+            <div class="stats-grid" id="trip-stats"></div>
+            <div class="trip-grid" id="trip-list"></div>
+            <p class="local-note">Ваши планы сохраняются в этом браузере. <a href="html/about.html">Как это работает</a></p>
+        </section>
+        <section data-view="favorites" hidden aria-labelledby="favorites-title">
+            <div class="page-heading"><p class="eyebrow">На потом</p><h1 id="favorites-title">Избранные направления</h1><p>Места, к которым хочется вернуться, когда появится время.</p></div>
+            <div class="destination-grid" id="favorite-list"></div>
+        </section>
+        <section data-view="trip" id="planner-view" hidden aria-label="План поездки"></section>
+    </main>
+    <footer class="site-footer container"><p>TripPlan · Путешествуйте в своём ритме</p><a href="html/about.html">Как пользоваться</a><p>Маршруты. Впечатления. Ваши истории.</p></footer>
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+    <dialog id="trip-dialog" aria-labelledby="trip-dialog-title">
+        <form id="trip-form">
+            <div class="dialog-heading"><h2 id="trip-dialog-title">Новая поездка</h2><button class="icon-button" type="button" data-action="close-dialog" aria-label="Закрыть">×</button></div>
+            <p class="muted">Начнём с самого важного.</p>
+            <input type="hidden" name="id">
+            <label>Название<input name="title" maxlength="70" required placeholder="Выходные в Риме" autocomplete="off"></label>
+            <label>Куда отправляемся?<input name="destination" list="destination-options" maxlength="70" required placeholder="Город или место" autocomplete="off"></label>
+            <datalist id="destination-options"></datalist>
+            <div class="form-row"><label>Начало<input type="date" name="start" required></label><label>Окончание<input type="date" name="end" required></label></div>
+            <div class="form-row"><label>Путешественники<input type="number" name="people" min="1" max="30" step="1" value="1" required></label><label>Бюджет, ₽<input type="number" name="budget" min="0" max="1000000000" step="0.01" value="0" required></label></div>
+            <p class="form-error" id="trip-error" role="alert"></p>
+            <button class="button full-width" type="submit" id="trip-submit">Создать поездку</button>
+        </form>
+        <section class="trip-preview" aria-labelledby="trip-preview-title">
+            <h3 id="trip-preview-title">Идеи для поездки</h3>
+            <p id="trip-preview-hint" class="muted">Выберите направление, чтобы увидеть места и идеи для отдыха.</p>
+            <div id="trip-preview-places" class="trip-preview-places" hidden></div>
+        </section>
+    </dialog>
+    <dialog id="place-dialog" aria-labelledby="place-dialog-title">
+        <form id="place-form">
+            <div class="dialog-heading"><h2 id="place-dialog-title">Добавить место</h2><button class="icon-button" type="button" data-action="close-dialog" aria-label="Закрыть">×</button></div>
+            <input type="hidden" name="id">
+            <label>Место или занятие<input name="title" maxlength="100" required placeholder="Прогулка у Колизея"></label>
+            <div class="form-row"><label>Дата<input type="date" name="date" required></label><label>Время<input type="time" name="time" value="10:00" required></label></div>
+            <label>Заметка<textarea name="note" rows="3" maxlength="300" placeholder="Адрес, детали или что взять с собой"></textarea></label>
+            <p class="form-error" id="place-error" role="alert"></p>
+            <button class="button full-width" type="submit">Сохранить место</button>
+        </form>
+    </dialog>
+    <dialog id="expense-dialog" aria-labelledby="expense-dialog-title">
+        <form id="expense-form">
+            <div class="dialog-heading"><h2 id="expense-dialog-title">Добавить расход</h2><button class="icon-button" type="button" data-action="close-dialog" aria-label="Закрыть">×</button></div>
+            <input type="hidden" name="id">
+            <label>Название расхода<input name="title" maxlength="80" required placeholder="Билеты на поезд"></label>
+            <div class="form-row"><label>Сумма, ₽<input type="number" name="amount" min="0.01" max="1000000000" step="0.01" required placeholder="2500"></label><label>Категория<select name="category"><option>Транспорт</option><option>Жильё</option><option>Еда</option><option>Развлечения</option><option>Прочее</option></select></label></div>
+            <p class="form-error" id="expense-error" role="alert"></p>
+            <button class="button full-width" type="submit">Сохранить расход</button>
+        </form>
+    </dialog>
+    <dialog id="confirm-dialog" aria-labelledby="confirm-title">
+        <form id="confirm-form"><h2 id="confirm-title">Удалить поездку?</h2><p id="confirm-message">Маршрут, расходы и список вещей этой поездки будут удалены.</p><div class="actions"><button class="button secondary" type="button" data-action="close-dialog">Отмена</button><button class="button danger" type="submit">Удалить поездку</button></div></form>
+    </dialog>
+</body>
+</html>
