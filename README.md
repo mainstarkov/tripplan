@@ -1,5 +1,7 @@
 # TripPlan
 
+**[Попробовать демо](https://mainstarkov.github.io/tripplan/)**
+
 Локальный планировщик путешествий. Помогает собрать маршрут, расходы и список вещей в одном месте.
 
 [Открыть демо](https://mainstarkov.github.io/tripplan/)
